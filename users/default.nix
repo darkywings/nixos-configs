@@ -13,4 +13,5 @@
   };
   
   users.extraGroups.vboxusers.members = [ "darky" ];
+  users.extraGroups.docker.members = [ "darky" ];
 }

@@ -1,9 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  virtualization.docker = {
+  virtualisation.docker = {
     enable = true;
-    enableOnBoot = true;
     extraPackages = with pkgs; [ docker-compose ];
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+    #daemon.settings = {
+    #  experimental = true;
+    #  data-root = "/home/darky/dev/docker-data-root";
+    #  userland-proxy = false;
+    #};
   };
 }

@@ -12,6 +12,7 @@
 
       /home/darky/Desktop/nixos-configs/users
       /home/darky/Desktop/nixos-configs/hosts/common/sudo.nix
+      /home/darky/Desktop/nixos-configs/hosts/common/virtualization.nix
     ];
 
   # Bootloader.
