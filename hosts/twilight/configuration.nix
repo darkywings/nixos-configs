@@ -109,10 +109,17 @@
 	wget
 	docker
 	gnupg
-	vscode
+	vscode-fhs
 	discord
 	krita
+	tor-browser
+	python312
+	python312.pkgs.pip
+	python312.pkgs.virtualenv
+	uv
   ];
+
+  environment.localBinInPath = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -127,6 +134,21 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.tor = {
+    enable = true;
+    openFirewall = true;
+    relay = {
+      enable = true;
+      role = "relay";
+    };
+    settings = {
+      Nickname = "drky";
+      ORPort = 9001;
+      ControlPort = 9051;
+      BandWidthRate = "5 MBytes";
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
